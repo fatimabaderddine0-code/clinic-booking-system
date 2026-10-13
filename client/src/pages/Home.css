@@ -1,0 +1,63 @@
+
+
+.home {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 70px 8%;
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(25, 49, 75, 0.85),
+      rgba(25, 49, 75, 0.15)
+    ),
+    url("/clinic_background.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+.home-content {
+  flex: 1;
+}
+
+.home-content h1 {
+  font-size: 42px;
+  color: var(--white);
+}
+
+.home-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 20px 0 30px;
+  color: var(--white);
+}
+
+.home-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background-color: #477eb5;
+  color: var(--white);
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+.home-btn:hover {
+  background-color: #315f91;
+}
+
+@media (max-width: 768px) {
+  .home {
+    min-height: 75vh;
+    padding: 50px 6%;
+    background-position: center;
+  }
+
+  .home-content h1 {
+    font-size: 30px;
+  }
+
+  .home-content p {
+    font-size: 16px;
+  }
+}

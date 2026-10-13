@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #477eb5;
+  --secondary: #263b53;
+  --background: #f5f9ff;
+  --text-color: #64748b;
+  --white: #ffffff;
+}
+
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-width: 320px;
+}

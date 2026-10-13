@@ -1,0 +1,130 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 18px 8%;
+  background-color: var(--white);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.navbar h2 {
+  color: var(--primary);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--secondary);
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* Book Now Button */
+.nav-links .nav-book-btn {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 11px 22px;
+  border-radius: 25px;
+  transition: 0.3s ease;
+}
+
+.nav-links .nav-book-btn:hover {
+  background-color: var(--secondary);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--background);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background-color: var(--primary);
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+/* Hamburger to X */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 6%;
+  }
+
+  .menu-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding-top: 20px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px 15px;
+    border-radius: 10px;
+  }
+
+  .nav-links a:hover {
+    background-color: var(--background);
+  }
+
+  .nav-links .nav-book-btn {
+    text-align: center;
+    margin-top: 8px;
+  }
+}
