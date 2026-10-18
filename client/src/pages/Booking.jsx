@@ -1,39 +1,76 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import "./Booking.css";
+import api from "../api/api";
 
 function Booking() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+
+  const [services, setServices] = useState([]);
   const [service, setService] = useState("");
+
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [notes, setNotes] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await api.get("/services");
+        setServices(response.data);
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      }
+    };
+
+    fetchServices();
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setMessage("");
 
-    console.log({
-      name,
-      phone,
-      email,
-      service,
-      date,
-      time,
-      notes
-    });
+    const bookingData = {
+      customer_name: name,
+      phone: phone,
+      email: email,
+      service_id: Number(service),
+      booking_date: date,
+      booking_time: time,
+      notes: notes
+    };
+
+    try {
+      const response = await api.post("/bookings", bookingData);
+
+      console.log(response.data);
+      setMessage("Your appointment has been booked successfully!");
+
+      setName("");
+      setPhone("");
+      setEmail("");
+      setService("");
+      setDate("");
+      setTime("");
+      setNotes("");
+
+    } catch (error) {
+      console.error("Error creating booking:", error);
+      setMessage("Booking failed. Please try again.");
+    }
   };
 
   return (
     <section className="booking">
-
       <div className="booking-header">
         <h1>Book an Appointment</h1>
         <p>Schedule your visit with our medical team.</p>
       </div>
 
       <form className="booking-form" onSubmit={handleSubmit}>
-
         <div className="booking-fields">
 
           <div>
@@ -83,9 +120,12 @@ function Booking() {
               <option value="" disabled>
                 Select a service
               </option>
-              <option value="1">General Consultation</option>
-              <option value="2">Follow-up Visit</option>
-              <option value="3">Routine Checkup</option>
+
+              {services.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.NAME}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -128,6 +168,11 @@ function Booking() {
           Book Now
         </button>
 
+        {message && (
+          <p className="booking-message">
+            {message}
+          </p>
+        )}
       </form>
     </section>
   );

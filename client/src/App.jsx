@@ -6,6 +6,9 @@ import Contact from "./pages/Contact";
 import Booking from "./pages/Booking";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import AdminDashoard from "./pages/AdminDashboard";
+import AdminLogin from "./pages/AdminLogin";
+import ProtectedRoute from "./components/protectedRoutes";
 function App() {
   return (
     <>
@@ -18,9 +21,18 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/booking" element={<Booking />} />
-      </Routes>
-      <Footer/>
-   
+      <Route
+  path="/admin"
+  element={
+    <ProtectedRoute>
+      <AdminDashoard />
+    </ProtectedRoute>
+  }
+/>
+
+<Route path="/admin/login" element={<AdminLogin />} />
+   </Routes>
+   <Footer/>
     </BrowserRouter>
     </>
   );

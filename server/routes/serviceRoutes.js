@@ -1,0 +1,10 @@
+const express = require("express");
+const router = express.Router();
+const verifyAdmin = require("../middleware/authMiddleware");
+const serviceController = require("../controllers/serviceController");
+router.get("/", serviceController.getAllServices);
+router.post("/",verifyAdmin,serviceController.createService);
+router.get("/:id",serviceController.getServiceById);
+router.put("/:id",verifyAdmin,serviceController.updateService);
+router.delete("/:id",verifyAdmin,serviceController.deleteService);
+module.exports=router;

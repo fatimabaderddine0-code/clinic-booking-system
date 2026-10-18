@@ -1,0 +1,93 @@
+
+/* Admin Dashboard */
+
+.admin-dashboard {
+  padding: 40px 6%;
+  min-height: 100vh;
+  background-color: #f5f9fc;
+}
+
+.admin-dashboard h1 {
+  font-size: 32px;
+  color: #173b56;
+  margin-bottom: 10px;
+}
+
+.admin-dashboard > p {
+  color: #718096;
+  font-size: 16px;
+  margin-bottom: 35px;
+}
+
+/* Statistics Cards */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.dashboard-stats > div {
+  background-color: #ffffff;
+  padding: 28px 22px;
+  border-radius: 16px;
+  border: 1px solid #e1edf5;
+  box-shadow: 0 4px 16px rgba(23, 59, 86, 0.06);
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.dashboard-stats > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(23, 59, 86, 0.1);
+}
+
+.dashboard-stats h3 {
+  color: #718096;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.dashboard-stats p {
+  color: #173b56;
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Tablet */
+
+@media (max-width: 992px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-dashboard {
+    padding: 30px 5%;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-dashboard {
+    padding: 25px 20px;
+  }
+
+  .admin-dashboard h1 {
+    font-size: 26px;
+  }
+
+  .dashboard-stats > div {
+    padding: 24px 20px;
+  }
+
+  .dashboard-stats p {
+    font-size: 30px;
+  }
+}
