@@ -1,6 +1,7 @@
 import { useState } from "react";
 import api from "../api/api";
 import { useNavigate } from "react-router-dom";
+import "./AdminLogin.css";
 function AdminLogin(){
   const navigate = useNavigate();
     const[email,setEmail]=useState("");
@@ -24,36 +25,36 @@ function AdminLogin(){
 
 
     return (
-        <div>
-            <h1>Admin login</h1>
-            <p>Sigin in to manage your clinic</p>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input 
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e)=>setEmail(e.target.value)}
-                    required/>
+  <div className="admin-login-page">
+    <div className="admin-login-card">
+      <h2>Admin Login</h2>
+      <p>Sign in to manage your clinic</p>
 
-                </div>
-                <div>
-  <label htmlFor="password">Password</label>
+      <form className="admin-login-form" onSubmit={handleSubmit}>
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
-  <input
-    id="password"
-    type="password"
-    value={password}
-    onChange={(e) => setPassword(e.target.value)}
-    required
-  />
-</div>
-<button type="submit">
- Login 
-</button>
-            </form>
-        </div>
-    );
+        <label htmlFor="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        <button className="admin-login-btn" type="submit">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+);
 }
 export  default AdminLogin;

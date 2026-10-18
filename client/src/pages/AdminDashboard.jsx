@@ -46,32 +46,47 @@ const handleLogout = () => {
      (booking) => booking.status === "confirmed"
       ).length;
 
-   return(
-    <div>
+  return (
+  <div className="admin-dashboard">
+
+    <div className="admin-dashboard-header">
+      <div>
         <h1>Admin Dashboard</h1>
-        <button onClick={handleLogout}>
-  Logout
-</button>
         <p>Manage clinic services and bookings.</p>
-        <div className="dashboard-stats">
-            <div>
-                <h3>Total Services</h3>
-                <p>{totalServices}</p>
-            </div>
-            <div>
-                <h3>Total Bookings</h3>
-                <p>{totalBookings}</p>
-            </div>
-            <div>
-                <h3>Pending Bookings</h3>
-                <p>{pendingBookings}</p>
-            </div>
-            <div>
-                <h3>Confirmed Bookings</h3>
-                <p>{confirmedBookings}</p>
-            </div>
-        </div>
+      </div>
+
+      <button
+        className="admin-logout-btn"
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
     </div>
-   );
+
+    <div className="admin-stats-grid">
+
+      <div className="admin-stat-card">
+        <p>Total Services</p>
+        <h2>{totalServices}</h2>
+      </div>
+
+      <div className="admin-stat-card">
+        <p>Total Bookings</p>
+        <h2>{totalBookings}</h2>
+      </div>
+
+      <div className="admin-stat-card">
+        <p>Pending Bookings</p>
+        <h2>{pendingBookings}</h2>
+      </div>
+
+      <div className="admin-stat-card">
+        <p>Confirmed Bookings</p>
+        <h2>{confirmedBookings}</h2>
+      </div>
+
+    </div>
+  </div>
+);
 }
 export default AdminDashoard;
