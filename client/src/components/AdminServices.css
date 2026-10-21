@@ -1,0 +1,275 @@
+.add-service-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.add-service-form input,
+.add-service-form textarea {
+  padding: 12px;
+  border: 1px solid #d5e2e8;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.add-service-form input:focus,
+.add-service-form textarea:focus {
+  border-color: #4a9bb5;
+}
+.add-service-form button {
+  background-color: #4b85b9;
+  color: white;
+  border: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-service-form button:hover {
+  background-color: #326b9e;
+}
+.admin-services table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+}
+
+.admin-services th,
+.admin-services td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-services th {
+  background-color: #eef6fb;
+  color: #245b73;
+}
+
+.admin-services tr:hover {
+  background-color: #f7fbff;
+}
+.admin-services td button {
+  padding: 8px 14px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #4b85b9;
+  color: white;
+}
+
+.admin-services td button:last-child {
+  background-color: #e57373;
+}
+.admin-services h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #245b73;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.admin-services p {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.admin-services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.add-service-btn {
+  background: #245b73;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.add-service-btn:hover {
+  background: #173c56;
+}
+
+.add-service-form h3 {
+  grid-column: 1 / -1;
+  color: #173c56;
+  margin: 0 0 10px;
+}
+
+.service-form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+}
+
+.cancel-service-btn {
+  background: #e7edf2;
+  color: #173c56;
+  border: none;
+  border-radius: 9px;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .admin-services-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.admin-services {
+  padding: 30px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.admin-services-header {
+  margin-bottom: 25px;
+}
+
+.admin-services-header h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.admin-services-header p {
+  margin: 0;
+}
+
+/* Services page */
+.admin-services {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.admin-services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.admin-services-header h2 {
+  margin: 0 0 8px;
+}
+
+.admin-services-header p {
+  margin: 0;
+}
+
+.add-service-btn {
+  flex-shrink: 0;
+}
+
+/* Responsive form */
+.add-service-form {
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  margin-bottom: 24px;
+}
+
+.add-service-form input,
+.add-service-form textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.service-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Responsive table */
+.services-table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 20px;
+}
+
+.services-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+}
+
+.services-table th,
+.services-table td {
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.service-actions {
+  white-space: nowrap;
+}
+
+.service-actions button {
+  margin: 3px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 768px) {
+  .admin-services-header {
+    align-items: flex-start;
+  }
+
+  .admin-services-header > div {
+    width: 100%;
+  }
+
+  .add-service-btn {
+    width: 100%;
+  }
+
+  .add-service-form {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .service-form-actions {
+    flex-direction: column;
+  }
+
+  .service-form-actions button {
+    width: 100%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+  .admin-services-header h2 {
+    font-size: 22px;
+  }
+
+  .admin-services-header p {
+    font-size: 14px;
+  }
+
+  .add-service-form {
+    padding: 12px;
+  }
+}

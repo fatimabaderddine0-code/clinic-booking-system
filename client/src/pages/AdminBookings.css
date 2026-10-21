@@ -1,0 +1,136 @@
+.admin-bookings {
+  background: #ffffff;
+  padding: 30px;
+  margin: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.admin-bookings h2 {
+  font-size: 28px;
+  color: #245b73;
+  margin-bottom: 10px;
+}
+
+.admin-bookings p {
+  font-size: 15px;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.bookings-total {
+  font-size: 15px;
+  font-weight: 600;
+  color: #245b73;
+  margin-bottom: 20px;
+}
+
+.bookings-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-bookings table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 850px;
+}
+
+.admin-bookings th,
+.admin-bookings td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 14px;
+}
+
+.admin-bookings th {
+  background-color: #eef6fb;
+  color: #245b73;
+  font-weight: 600;
+}
+
+.admin-bookings tbody tr:hover {
+  background-color: #f7fbff;
+}
+
+/* Status */
+
+.booking-status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.booking-status.pending {
+  background: #fff3cd;
+  color: #946200;
+}
+
+.booking-status.confirmed {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.booking-status.cancelled {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Action buttons */
+
+.booking-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.confirm-btn,
+.cancel-btn {
+  padding: 8px 13px;
+  border: none;
+  border-radius: 7px;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.confirm-btn {
+  background: #259b78;
+}
+
+.confirm-btn:hover {
+  background: #17785b;
+}
+
+.cancel-btn {
+  background: #e57373;
+}
+
+.cancel-btn:hover {
+  background: #c94d4d;
+}
+
+.confirm-btn:disabled,
+.cancel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.empty-bookings {
+  text-align: center !important;
+  color: #64748b;
+  padding: 30px !important;
+}
+
+@media (max-width: 768px) {
+  .admin-bookings {
+    margin: 12px;
+    padding: 18px;
+  }
+
+  .admin-bookings h2 {
+    font-size: 23px;
+  }
+}

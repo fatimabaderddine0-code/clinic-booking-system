@@ -18,6 +18,8 @@ db.connect((err)=>{
 app.use("/api/services",require("./routes/serviceRoutes"));
 app.use("/api/bookings",require("./routes/bookingRoutes"));
 app.use("/api/admins", require("./routes/adminRoutes"));
+app.use("/api/about", require("./routes/aboutRoutes"));
+app.use("/api/contact", require("./routes/contactRoutes"));
 app.listen(5000,()=>{
     console.log("Server runnig on port 5000");
 });

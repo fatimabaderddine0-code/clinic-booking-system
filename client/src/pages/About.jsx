@@ -1,7 +1,25 @@
+
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import api from "../api/api";
 import "./About.css";
 
 function About() {
+  const [about, setAbout] = useState(null);
+
+  useEffect(() => {
+    const fetchAbout = async () => {
+      try {
+        const response = await api.get("/about");
+        setAbout(response.data);
+      } catch (error) {
+        console.error("Error fetching About:", error);
+      }
+    };
+
+    fetchAbout();
+  }, []);
+
   return (
     <section className="about">
       <div className="about-container">
@@ -12,19 +30,13 @@ function About() {
         </div>
 
         <h1 className="about-title">
-          Healthcare that puts
-          <span> you first.</span>
+          {about?.title}
         </h1>
 
         <div className="about-details">
           <div className="about-intro">
-            <h2>Welcome to HealthCore</h2>
-            <p>
-              At HealthCore, we believe healthcare should be
-              accessible, personal, and built around your needs.
-              Our goal is to provide a comfortable experience
-              and reliable medical services for every patient.
-            </p>
+            <h2>{about?.subtitle}</h2>
+            <p>{about?.description}</p>
           </div>
 
           <div className="about-values">
@@ -49,7 +61,7 @@ function About() {
         </div>
 
         <div className="about-bottom">
-          <p>Your health is our priority.</p>
+          <p>{about?.bottom_text}</p>
 
           <Link to="/services" className="about-btn">
             Explore Our Services ↗

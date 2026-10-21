@@ -68,57 +68,37 @@ const getBookingById = (req, res) => {
 };
 const updateBooking = (req, res) => {
   const { id } = req.params;
+  const { status } = req.body;
 
-  const {
-    customer_name,
-    phone,
-    email,
-    service_id,
-    booking_date,
-    booking_time,
-    notes,
-    status
-  } = req.body;
+  const allowedStatuses = ["pending", "confirmed", "cancelled"];
 
-  const sql = `
-    UPDATE bookings
-    SET customer_name = ?, phone = ?, email = ?,
-        service_id = ?, booking_date = ?, booking_time = ?,
-        notes = ?, status = ?
-    WHERE id = ?
-  `;
+  if (!allowedStatuses.includes(status)) {
+    return res.status(400).json({
+      message: "Invalid booking status"
+    });
+  }
 
-  db.query(
-    sql,
-    [
-      customer_name,
-      phone,
-      email,
-      service_id,
-      booking_date,
-      booking_time,
-      notes,
-      status,
-      id
-    ],
-    (err, result) => {
-      if (err) {
-        return res.status(500).json({
-          message: "Database error"
-        });
-      }
+  const sql = "UPDATE bookings SET status = ? WHERE id = ?";
 
-      if (result.affectedRows === 0) {
-        return res.status(404).json({
-          message: "Booking not found"
-        });
-      }
+  db.query(sql, [status, id], (err, result) => {
+    if (err) {
+      console.error("Database error:", err);
 
-      res.json({
-        message: "Booking updated successfully"
+      return res.status(500).json({
+        message: "Database error"
       });
     }
-  );
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({
+        message: "Booking not found"
+      });
+    }
+
+    res.json({
+      message: "Booking status updated successfully"
+    });
+  });
 };
 const deleteBooking = (req, res) => {
   const { id } = req.params;

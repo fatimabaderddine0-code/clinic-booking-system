@@ -2,6 +2,8 @@ import { useState,useEffect } from "react";
 import api from "../api/api";
 import "./AdminDashboard.css";
 import { useNavigate } from "react-router-dom";
+
+
 function AdminDashoard(){
 const navigate = useNavigate();
 
@@ -47,7 +49,9 @@ const handleLogout = () => {
       ).length;
 
   return (
+
   <div className="admin-dashboard">
+   
 
     <div className="admin-dashboard-header">
       <div>
@@ -86,7 +90,10 @@ const handleLogout = () => {
       </div>
 
     </div>
+
   </div>
+  
+  
 );
 }
 export default AdminDashoard;

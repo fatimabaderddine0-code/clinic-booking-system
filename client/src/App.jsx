@@ -9,6 +9,11 @@ import Footer from "./components/Footer";
 import AdminDashoard from "./pages/AdminDashboard";
 import AdminLogin from "./pages/AdminLogin";
 import ProtectedRoute from "./components/protectedRoutes";
+import AdminServices from "./components/AdminServices";
+import AdminLayout from "./components/AdminLayout";
+import AdminBookings from "./pages/AdminBookings";
+import AdminAbout from "./pages/AdminAbout";
+import AdminMessages from "./pages/AdminMessages";
 function App() {
   return (
     <>
@@ -21,15 +26,20 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/booking" element={<Booking />} />
-      <Route
+<Route
   path="/admin"
   element={
     <ProtectedRoute>
-      <AdminDashoard />
+      <AdminLayout />
     </ProtectedRoute>
   }
-/>
-
+>
+  <Route index element={<AdminDashoard />} />
+  <Route path="services" element={<AdminServices />} />
+  <Route path="bookings" element={<AdminBookings />} />
+  <Route path="about" element={<AdminAbout />} />
+  <Route path="messages" element={<AdminMessages />} />
+</Route>
 <Route path="/admin/login" element={<AdminLogin />} />
    </Routes>
    <Footer/>

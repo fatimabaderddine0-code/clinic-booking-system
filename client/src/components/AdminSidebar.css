@@ -1,0 +1,130 @@
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.admin-sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background-color: #173c56;
+  padding: 30px 20px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.admin-sidebar h2 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.admin-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-sidebar-nav a {
+  color: #dbeafe;
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: 8px;
+}
+
+.admin-sidebar-nav a:hover,
+.admin-sidebar-nav a.active {
+  background-color: #326b9e;
+  color: white;
+}
+
+.admin-main {
+  flex: 1;
+  min-width: 0;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* Mobile Header */
+.admin-mobile-header {
+  display: none;
+}
+
+.admin-menu-toggle {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+/* Mobile Overlay */
+.admin-sidebar-overlay {
+  display: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .admin-layout {
+    display: block;
+    padding-top: 65px;
+  }
+
+  .admin-mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    padding: 0 16px;
+    background-color: #173c56;
+    box-sizing: border-box;
+    z-index: 1002;
+  }
+
+  .admin-mobile-header h2 {
+    color: white;
+    font-size: 21px;
+    margin: 0;
+  }
+
+  .admin-sidebar {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    min-height: 0;
+    height: calc(100vh - 65px);
+    overflow-y: auto;
+    z-index: 1001;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .admin-sidebar.admin-sidebar-open {
+    transform: translateX(0);
+  }
+
+  .admin-sidebar h2 {
+    display: none;
+  }
+
+  .admin-sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 65px 0 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+  }
+
+  .admin-main {
+    width: 100%;
+    padding: 16px;
+  }
+}
