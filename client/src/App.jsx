@@ -1,4 +1,4 @@
-import { BrowserRouter,Routes,Route } from "react-router-dom";
+import {HashRouter,Routes,Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -17,7 +17,7 @@ import AdminMessages from "./pages/AdminMessages";
 function App() {
   return (
     <>
-    <BrowserRouter basename="/clinic-booking-system">
+    <HashRouter>
     
       <Navbar/>
       <Routes>
@@ -43,7 +43,7 @@ function App() {
 <Route path="/admin/login" element={<AdminLogin />} />
    </Routes>
    <Footer/>
-    </BrowserRouter>
+    </HashRouter>
     </>
   );
 }
