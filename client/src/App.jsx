@@ -17,7 +17,7 @@ import AdminMessages from "./pages/AdminMessages";
 function App() {
   return (
     <>
-    <BrowserRouter>
+    <BrowserRouter basename="/clinic-booking-system">
     
       <Navbar/>
       <Routes>
