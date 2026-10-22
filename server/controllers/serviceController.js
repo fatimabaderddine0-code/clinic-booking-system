@@ -3,11 +3,14 @@ const db = require("../config/db");
 const getAllServices = (req,res)=>{
     const sql = "SELECT * FROM services";
     db.query(sql,(err,results)=>{
-        if(err){
-            return res.status(500).json({
-                message:"Database error"
-            });
-        }
+        if (err) {
+  console.error("Error fetching services:", err);
+
+  return res.status(500).json({
+    message: "Database error"
+  });
+}
+        
         return res.json(results);
 
     });
