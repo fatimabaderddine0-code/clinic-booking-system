@@ -7,7 +7,7 @@ function Services() {
   useEffect(()=>{
     const fetchServices = async ()=>{
       try{
-        const response = await api.get("./services");
+        const response = await api.get("/services");
         setServices(response.data);
       }catch(error){
         console.error("Error fetching services:",error);
